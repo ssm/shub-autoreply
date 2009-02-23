@@ -1,0 +1,29 @@
+Postfix configuration:
+
+In order to add shub-autoreply to postfix, you need to do the following:
+
+
+##############################
+## /etc/postfix/master.cf
+# Autoreply transport
+shub-autoreply unix -   n       n       -       -       pipe
+  flags=q user=nobody argv=/usr/bin/shub-autoreply -s ${sender} -r ${recipient}
+
+##############################
+## /etc/postfix/transport
+# Single mail address bounce
+user@domain	shub-autoreply:
+# Bounce the whole domain
+@domain		shub-autoreply:
+
+##############################
+## /etc/postfix/main.cf
+transport_maps = hash:/etc/postfix/transport
+
+(...or dbm:/etc/postfix/transport, or whatever...)
+
+Per-address messages:
+
+In order to create a personal message for different mail addresses, create a
+file called "/etc/shub-autoreply/templates/user@domain". The text in this file
+will become the body of the autoreply message.

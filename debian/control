@@ -1,0 +1,14 @@
+Source: shub-autoreply
+Section: mail
+Priority: optional
+Maintainer: Stig Sandbeck Mathisen <ssm@debian.org>
+Build-Depends: debhelper (>= 4.0.0)
+Standards-Version: 3.6.1
+
+Package: shub-autoreply
+Architecture: any
+Depends: ruby1.8, libtmail-ruby1.8
+Description: Autoreply transport for postfix
+ This ruby script is an autoreply transport for postfix.  It is not designed to
+ be fast, but as far as it was designed at all, its purpose is to be simple to
+ configure.

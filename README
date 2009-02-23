@@ -1,0 +1,2 @@
+This ruby script is an autoreply transport for postfix.  It is not designed to
+be fast, but to be simple to use and configure.
