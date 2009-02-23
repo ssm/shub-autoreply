@@ -1,0 +1,4 @@
+Rate limiting: Make it not answer every single mail, to avoid mail loops.
+
+Lookup table: Use a domain - autoreply domain table, to avoid having to list
+every single address several places.
